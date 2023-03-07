@@ -1,4 +1,4 @@
-public abstract class WheeledVehicle {
+public abstract class WheeledVehicle implements RidesOnWheels {
     private String modelName;
     private int wheelsCount;
 
@@ -28,7 +28,18 @@ public abstract class WheeledVehicle {
         this.wheelsCount = wheelsCount;
     }
 
+    @Override
+    public void check() {
+        updateTyres();
+    }
+
     public void updateTyre() {
         System.out.println("Меняем покрышку");
+    }
+
+    public void updateTyres() {
+        for (int i = 0; i < getWheelsCount(); i++) {
+            updateTyre();
+        }
     }
 }

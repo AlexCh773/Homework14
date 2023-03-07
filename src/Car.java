@@ -1,4 +1,4 @@
-public class Car extends WheeledVehicle {
+public class Car extends WheeledVehicle implements RidesOnWheels{
     public void checkEngine() {
         System.out.println("Проверяем двигатель");
     }
@@ -8,5 +8,11 @@ public class Car extends WheeledVehicle {
     }
 
     public Car() {
+    }
+
+    @Override
+    public void check() {
+        super.check();
+        checkEngine();
     }
 }
